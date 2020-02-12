@@ -1,7 +1,6 @@
 package it;
 
 import com.example.demo.DemoApplication;
-import com.example.demo.modules.three.SupplierService;
 import com.foreach.across.test.support.config.MockAcrossServletContextInitializer;
 import com.foreach.across.test.support.config.MockMvcConfiguration;
 import org.junit.Test;
@@ -39,8 +38,7 @@ public class ITDemoApplication
 	@Autowired
 	private MockMvc mockMvc;
 
-	@Autowired
-	private SupplierService supplierService;
+
 
 	@Test
 	public void bootstrappedOk() throws Exception {
@@ -48,11 +46,5 @@ public class ITDemoApplication
 		assertNotNull( mockMvc );
 	}
 
-	@Test
-	public void eventShouldBeHandledByAllModules() {
-		assertEquals(
-				Arrays.asList( "SupplierService", "InternalComponentOne", "InternalComponentTwo", "ApplicationComponent" ),
-				supplierService.getEventListeners()
-		);
-	}
+
 }
